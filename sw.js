@@ -1,5 +1,5 @@
-const statictCacheName = "site_cache_v7";
-const dynamicCacheName = "dynamic_cache_v2";
+const statictCacheName = "site_cache_v8";
+const dynamicCacheName = "dynamic_cache_v3";
 const assets = [
     '/',
     '/index.html',
@@ -71,11 +71,12 @@ self.addEventListener('push', evt => {
                 icon: 'images/xmark.png'},
         ]
     };
+    var donnees=evt.data.json();
 
-    console.log('show notification: event:',evt.data.json());
+    console.log('show notification: event:',donnees);
 
     evt.waitUntil(
-        self.registration.showNotification('test message', options)
+        self.registration.showNotification('test message', donnees)
     )
 });
 
@@ -83,6 +84,8 @@ self.addEventListener('notificationclick', function(e) {
     var notification = e.notification;
     var primaryKey = notification.data.primaryKey;
     var action = e.action;
+
+    console.log('Notification click :',notification);
 
     if (action === 'close') {
         notification.close();

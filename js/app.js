@@ -14,8 +14,8 @@ async function subscribe() {
             applicationServerKey: 'BEf1IWsWxpYHwvd9uKZPjCSKUtja__vryjavo1j8wqZopNhm70kWhzb6olPzKt6X196gQCsDeYMgVDXq-HY2-A4',
             userVisibleOnly: true
         });
-
-        console.log(JSON.stringify(push))
+        document.getElementById("id_token").innerHTML =JSON.stringify(push);
+        console.log(JSON.stringify(push));
     }
     else
         console.log('Vous avez déjà souscrit à cette Notification')
