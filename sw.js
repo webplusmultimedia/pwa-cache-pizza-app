@@ -72,7 +72,7 @@ self.addEventListener('push', evt => {
         ]
     };
 
-    console.log('show notification: event:',evt);
+    console.log('show notification: event:',evt.notification.json());
 
     evt.waitUntil(
         self.registration.showNotification('test message', options)
