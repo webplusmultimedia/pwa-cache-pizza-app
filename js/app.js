@@ -18,5 +18,5 @@ async function subscribe() {
         console.log(JSON.stringify(push));
     }
     else
-        console.log('Vous avez déjà souscrit à cette Notification')
+        document.getElementById("id_token").innerHTML ='Vous avez déjà souscrit à cette Notification';
 }
