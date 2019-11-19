@@ -1,0 +1,19 @@
+{
+  "name": "pwa_pizza_ninja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "WPM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webplusmultimedia/pwa-cache-pizza-app/issues"
+  },
+  "homepage": "https://github.com/webplusmultimedia/pwa-cache-pizza-app#readme",
+  "dependencies": {
+    "eslint": "^6.6.0",
+    "web-push": "^3.4.1"
+  }
+}
