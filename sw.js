@@ -46,13 +46,10 @@ self.addEventListener("fetch", evt => {
                     if (evt.request.url.indexOf('https') === 0)
                         cache.put(evt.request.url, fetchRes.clone());
                     return fetchRes;
-                }).catch(() => {
-                    //if (evt.request.url.indexOf('.html') > -1)
-                       return caches.match('/pages/fallback.html');
                 })
             });
         }).catch(() => {
-            //if (evt.request.url.indexOf('.html') > -1)
+            if (evt.request.url.indexOf('.html') > -1)
              return   caches.match('/pages/fallback.html');
         })
     )
