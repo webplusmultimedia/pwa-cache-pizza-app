@@ -38,7 +38,7 @@ self.addEventListener("activate", evt => {
 self.addEventListener("fetch", evt => {
     //console.log('Service Worker as been fetch',evt)
     console.log('fetch request : ',evt.request.url);
-    evt.respondWith(async()=>
+    evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request).then((fetchRes) => {
                 return caches.open(dynamicCacheName).then(cache => {
@@ -46,11 +46,14 @@ self.addEventListener("fetch", evt => {
                     if (evt.request.url.indexOf('https') === 0)
                         cache.put(evt.request.url, fetchRes.clone());
                     return fetchRes;
+                }).catch(() => {
+                    //if (evt.request.url.indexOf('.html') > -1)
+                       return caches.match('/pages/fallback.html');
                 })
             });
         }).catch(() => {
-            if (evt.request.url.indexOf('.html') > -1)
-                caches.match('/pages/fallback.html');
+            //if (evt.request.url.indexOf('.html') > -1)
+             return   caches.match('/pages/fallback.html');
         })
     )
 
