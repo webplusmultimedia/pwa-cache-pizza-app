@@ -38,7 +38,7 @@ self.addEventListener("activate", evt => {
 self.addEventListener("fetch", evt => {
     //console.log('Service Worker as been fetch',evt)
     console.log('fetch request : ',evt.request.url);
-    evt.respondWith(
+    evt.respondWith(async()=>
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request).then((fetchRes) => {
                 return caches.open(dynamicCacheName).then(cache => {
